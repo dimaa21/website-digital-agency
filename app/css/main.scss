@@ -32,12 +32,10 @@ body {
 
 .header {
     margin-top: 30px;
-
-    .header-nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
 
             .header-name,
             .header-request,
@@ -71,9 +69,23 @@ body {
             }
         }
 
-        .header-preview {
-            .header-preview-main-text {
-                font-size: 70px;
+.header-preview {
+
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+
+    .header-preview-main-text {
+        font-size: 70px;
+
+        .yellow-text {
+            color: $colorYellow;
+        }
+
+        .white-teßxt {
+            color: $colorWhite;
         }
     }
 }
