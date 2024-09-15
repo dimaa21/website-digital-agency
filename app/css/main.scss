@@ -257,3 +257,69 @@ body {
     }
 }
 
+// Блок співробітника / опис текст | фото
+
+.employers {
+    margin-top: 150px;
+
+    @media screen and (max-width: 999px) {
+        text-align: center;
+    }
+
+    .employers-main-text {
+        font-size: 70px;
+        font-weight: 800;
+    }
+
+    .block-employers {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap; // Додає перенос для елементів, якщо це потрібно
+
+        .text-employers {
+            flex: 2; // Задає тексту частину простору
+            margin-right: 2em; // Відстань між текстом і зображенням
+
+            .employers-desc-text {
+                font-size: 36px;
+                line-height: 48px;
+                font-weight: 600;
+                color: #C4C4C4;
+            }
+        }
+
+        .img-work-container {
+            flex: 1; // Задає зображенням частину простору
+            margin: 1em; // Відстань між контейнерами зображень
+
+            img {
+                display: block; // Зображення блочне, щоб уникнути проблем з відступами
+                margin: 0 auto; // Вирівнює зображення по центру
+                max-width: 100%; // Забезпечує адаптивність по ширині
+                height: auto; // Висота автоматично змінюється пропорційно
+                object-fit: cover; // Якщо потрібно обрізати зображення для збереження співвідношення сторін
+            }
+        
+            figcaption {
+                font-size: 20px; // Зменшений розмір шрифту для підписів
+                color: $colorWhite; // Колір тексту підписів
+                text-align: center; // Вирівнювання підписів по центру
+                margin-top: 0.5em; // Відстань між зображенням та підписом
+            }  
+        }    
+    }
+
+    @media screen and (max-width: 999px) {
+        .block-employers {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center; // Вирівнює зображення по центру в колонці
+        }
+    }
+
+    .block-employers-img {
+        display: flex;
+    }
+}
