@@ -37,55 +37,103 @@ body {
     align-items: center;
     font-weight: 700;
 
-            .header-name,
-            .header-request,
-            .header-number {
-                text-decoration: none;
-                font-size: 16px;
-                line-height: 24px;
-                letter-spacing: 1px;
-                cursor: pointer;
-            }
+    .header-name {
+        background-image: linear-gradient(86.44deg, #B66ED4 5.86%, #FFDD3D 94.14%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-right: auto; 
+    }
 
-            .header-request,
-            .header-number {
-                margin-left: 20px;
-            }
-            
-            .header-name {
-                background-image: linear-gradient(86.44deg, #B66ED4 5.86%, #FFDD3D 94.14%);
-                -webkit-background-clip: text;
-                background-clip: text;
-                color: transparent;
-                margin-right: auto; /* Розміщує .header-name зліва */
-            }
+    .burger-menu {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
 
-            .header-request {
-                color: $colorWhite;
-            }
+        span {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 4px 0;
+        }
+    }
 
-            .header-number {
-                color: $colorYellow;
+    .menu-items {
+        display: none; /* Приховане за замовчуванням */
+        flex-direction: column;
+        position: absolute;
+        top: 17%; /* Розташування по вертикалі */
+        left: 50%; /* Розташування по горизонталі */
+        transform: translate(-50%, -50%) scale(0); /* Початковий стан — зменшений масштаб */
+        background-color: #000; /* Фон меню */
+        padding: 20px;
+        border-radius: 8px;
+        opacity: 0; /* Непрозорість = 0 */
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Плавніший перехід */
+        
+        a {
+            text-decoration: none;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 1px;
+            margin: 10px 0;
+            color: $colorWhite; /* Білий текст */
+        }
+    }
+
+    @media (max-width: 800px) {
+        .burger-menu {
+            display: flex;
+        }
+
+        .menu-items.active {
+            display: flex; /* Показуємо меню при активному стані */
+            opacity: 1; /* Прозорість 100% */
+            transform: translate(-50%, -50%) scale(1); /* Повернення до початкового масштабу */
+        }
+    }
+
+    @media (min-width: 800px) {
+        .menu-items {
+            display: flex; /* Показуємо меню на більших екранах */
+            position: static;
+            opacity: 1;
+            transform: none;
+            background-color: transparent;
+            padding: 0;
+            flex-direction: row;
+
+            a {
+                margin: 0 10px;
             }
         }
+    }
+}
 
 .header-preview {
-
+    background-color: #1A1A1A;
     margin-top: 150px;
-    display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: 700;
+    width: 100%;
+    border-radius: 50px;
 
-    .header-preview-main-text {
+    .content-preview {
+        padding: 20px 50px;
+        display: flex;
+        text-transform: uppercase;
+        font-weight: 700;
+
+        .header-preview-main-text {
         font-size: 70px;
 
-        .yellow-text {
-            color: $colorYellow;
-        }
+            .yellow-text {
+                color: $colorYellow;
+            }
 
-        .white-teßxt {
-            color: $colorWhite;
+            .white-text {
+                color: $colorWhite;
+            }
         }
     }
 }
