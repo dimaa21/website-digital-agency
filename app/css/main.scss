@@ -38,6 +38,8 @@ body {
     color: $colorWhite;
 }
 
+// Шапка 
+
 .header {
     margin-top: 30px;
     display: flex;
@@ -392,6 +394,100 @@ body {
         }
     }
 }
+
+/* Блок Послуги */
+
+.services {
+    text-align: left;
+    padding: 50px;
+    background-color: #000; // чорний фон
+    color: #fff; // білий текст
+
+    h2 {
+        font-size: 48px;
+        font-weight: bold;
+        margin-bottom: 30px;
+
+        @media screen and (max-width: 999px) {
+            text-align: center;
+        }
+    }
+
+    .services-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap; // Додаємо, щоб картки автоматично переносилися на новий ряд
+
+        .service-card {
+            background-color: #1C1C1C;
+            border-radius: 20px;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative; // для позиціонування зображення
+            transition: transform 0.3s;
+
+            &:hover {
+                transform: translateY(-10px);
+            }
+
+            h3 {
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 16px;
+                color: #C4C4C4;
+            }
+
+            span {
+                font-size: 20px;
+                font-weight: bold;
+                color: #F5B700; // жовтий текст для ціни
+            }
+
+            .service-icon {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                width: 50px;
+                height: auto;
+            }
+        }
+    }
+
+    // Адаптивність
+    @media screen and (min-width: 1200px) {
+        .services-container {
+            justify-content: space-between;
+            .service-card {
+                max-width: 30%; // Три блоки в ряд
+            }
+        }
+    }
+
+    @media screen and (max-width: 999px) {
+        .services-container {
+            justify-content: space-around; // Центруємо картки
+            .service-card {
+                max-width: 45%; // Два блоки в ряд
+            }
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        .services-container {
+            .service-card {
+                max-width: 100%; // Один блок в ряд
+            }
+        }
+    }
+}
+
 
 
 
