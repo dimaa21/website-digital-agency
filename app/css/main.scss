@@ -275,11 +275,11 @@ body {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        flex-wrap: wrap; // Додає перенос для елементів, якщо це потрібно
+        flex-wrap: wrap;
 
         .text-employers {
-            flex: 2; // Задає тексту частину простору
-            margin-right: 2em; // Відстань між текстом і зображенням
+            flex: 2; // Задає тексту більшу частину простору на великих екранах
+            margin-right: 2em; // Відступ між текстом і зображеннями
 
             .employers-desc-text {
                 font-size: 36px;
@@ -289,99 +289,109 @@ body {
             }
         }
 
-            @media screen and (max-width: 999px) {
-                .img-block {
-                    flex: 1 1 calc(50% - 1em); // Зображення займають по 50% ширини
-                }
-            }
-        }
-
         .img-work-container {
-            flex: 1; // Задає зображенням частину простору
-            margin: 1em; // Відстань між контейнерами зображень
-
-
+            flex: 1; // Кожне зображення займає одну частину простору
+            margin: 1em; // Відступи між контейнерами зображень
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
             img {
-                display: block; // Зображення блочне, щоб уникнути проблем з відступами
-                margin: 0 auto; // Вирівнює зображення по центру
-                max-width: 100%; // Забезпечує адаптивність по ширині
-                height: auto; // Висота автоматично змінюється пропорційно
-                object-fit: cover; // Якщо потрібно обрізати зображення для збереження співвідношення сторін
+                display: block;
+                margin: 0 auto;
+                max-width: 100%;
+                height: auto;
+                object-fit: cover;
             }
-        
-            figcaption {
-                font-size: 20px; // Зменшений розмір шрифту для підписів
-                color: $colorWhite; // Колір тексту підписів
-                text-align: center; // Вирівнювання підписів по центру
-                margin-top: 0.5em; // Відстань між зображенням та підписом
 
-            } 
+            figcaption {
+                font-size: 20px;
+                color: $colorWhite;
+                text-align: center;
+                margin-top: 0.5em;
+            }
 
             .position {
                 font-size: 15px;
                 color: #C4C4C4;
             }
         }
-    }
 
-    @media screen and (max-width: 999px) {
-        .block-employers {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center; // Вирівнює зображення по центру в колонці
+        @media screen and (max-width: 999px) {
+            .img-work-container {
+                flex: 1 1 100%; // Два зображення в ряд на середніх екранах
+            }
+
+            .hidden {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .img-work-container {
+                flex: 1 1 100%; // Зображення займають всю ширину на маленьких екранах
+            }
         }
     }
 
     .block-employers-img {
         display: flex;
         margin-top: 50px;
-        flex-wrap: wrap; // Дозволяє переносити елементи на новий рядок
-        justify-content: space-between; // Додає відступи між елементами
-        gap: 1em; // Відстань між зображеннями
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 1em;
 
-    
         .img-work-container {
-            flex: 1 1 calc(15% - 1em); // Зображення займають по 25% ширини з відступами
+            flex: 1 1 calc(25% - 1em); // Зображення займають по 25% ширини на великих екранах
             display: flex;
             flex-direction: column;
-            align-items: center; // Вирівнює зображення та підписи по центру
-            margin-bottom: 1em; // Відстань між рядками
-        
+            align-items: center;
+            margin-bottom: 1em;
+
             img {
-                display: block; // Зображення блочне, щоб уникнути проблем з відступами
-                max-width: 100%; // Забезпечує адаптивність по ширині
-                height: auto; // Висота автоматично змінюється пропорційно
-                object-fit: cover; // Якщо потрібно обрізати зображення для збереження співвідношення сторін
+                display: block;
+                max-width: 100%;
+                height: auto;
+                object-fit: cover;
             }
-        
+
             figcaption {
-                font-size: 20px; // Розмір шрифту для підписів
-                color: $colorWhite; // Колір тексту підписів
-                text-align: center; // Вирівнювання підписів по центру
-                margin-top: 0.5em; // Відстань між зображенням та підписом
+                font-size: 20px;
+                color: $colorWhite;
+                text-align: center;
+                margin-top: 0.5em;
             }
-    
+
             .position {
                 font-size: 15px;
                 color: #C4C4C4;
             }
         }
-    
-        // Відображення двох фото в ряд на малих екранах
-        @media screen and (max-width: 999px) {
-            .img-work-container {
-                flex: 1 1 100%; // Зображення займають по 50% ширини
+
+        .block-up {
+            display: none; // Приховуємо блок за замовчуванням (для ширини більше 999px)
+        
+            @media screen and (max-width: 999px) {
+                display: flex; // Робимо блок видимим при ширині екрану менше 999px
             }
         }
-    
+        
+
+        // Відображення двох фото в ряд на середніх екранах
+        @media screen and (max-width: 999px) {
+            .img-work-container {
+                flex: 1 1 calc(50% - 1em); // Зображення займають по 50% ширини
+            }
+        }
+
         // Для екранів ще меншого розміру
         @media screen and (max-width: 480px) {
             .img-work-container {
-                flex: 1 1 calc(25% - 1em) // Зображення займають всю ширину на маленьких екранах
+                flex: 1 1 100%; // Зображення займають всю ширину на малих екранах
             }
         }
     }
+}
+
 
 
