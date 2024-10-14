@@ -147,8 +147,9 @@ body {
             }
         }
     }
-}
 
+    
+}
 
 .header-preview {
     background-color: $colorGray;
@@ -160,6 +161,10 @@ body {
     opacity: 0;
     transform: translateY(50px);
     animation: fadeIn 1.5s ease-in-out forwards;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
 
     @media screen and (max-width: 600px) {
         margin-top: 50px;
@@ -169,82 +174,76 @@ body {
         padding: 20px 50px;
         display: flex;
         flex-direction: row;
-        align-items: center; /* Центрування по горизонталі */
+        align-items: center;
+        justify-content: center; /* Центрування контенту */
         text-transform: uppercase;
         font-weight: 700;
+        gap: 20px; /* Відстань між текстом і зображенням */
         transition: transform 0.3s ease, box-shadow 0.3s ease;
 
         .header-preview-main-text {
-            font-size: 5vw;
+            font-size: 2.5vw; /* Оптимізовано для різних екранів */
 
             .yellow-text {
-                @extend .yellow-text;
+                color: #FFD700; /* Жовтий колір для акценту */
             }
 
             .white-text {
-                @extend .white-text;
+                color: #fff; /* Білий текст */
             }
         }
 
         img {
-            max-width: 100%;
+            max-width: 150px;
             height: auto;
             margin-top: 20px;
         }
     }
 
-    /* Ефект при наведенні */
     &:hover {
-        transform: scale(1.05); /* Збільшуємо блок при наведенні */
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Додаємо тінь */
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
 
-    /* Медіа-запити для адаптивності */
     @media (max-width: 1200px) {
         .content-preview {
             padding: 15px 30px;
-
             .header-preview-main-text {
-                font-size: 5vw;
+                font-size: 3vw;
             }
         }
     }
 
     @media (max-width: 800px) {
         .content-preview {
-            margin-top: 200px;
             flex-direction: column;
             padding: 10px 20px;
-
-            .header-preview-main-text {
-                font-size: 4.5vw;
-            }
-        }
-    }
-
-    @media (max-width: 600px) {
-        .content-preview {
-            margin-top: 200px; 
-            padding: 5px 15px;
-
+            gap: 10px; /* Зменшуємо відстань між елементами */
             .header-preview-main-text {
                 font-size: 4vw;
             }
         }
     }
 
-    @media (max-width: 400px) {
-        margin-top: 200px;
+    @media (max-width: 600px) {
         .content-preview {
-            padding: 5px 10px;
-
+            padding: 5px 15px;
             .header-preview-main-text {
-                font-size: 3.5vw;
+                font-size: 4.5vw;
             }
         }
     }
 
-    /* Анімація при завантаженні */
+    @media (max-width: 400px) {
+        margin-top: 50px;
+        .content-preview {
+            padding: 5px 10px;
+            .header-preview-main-text {
+                font-size: 5vw;
+            }
+        }
+    }
+
     @keyframes fadeIn {
         0% {
             opacity: 0;
