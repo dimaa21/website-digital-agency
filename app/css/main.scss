@@ -1,39 +1,39 @@
 /* Основний шрифт */
 @font-face {
     font-family: 'GT Walsheim Pro';
-    src: local("GT Walsheim Pro Regular"), local("GTWalsheimProRegular"), 
-         url(GTWalsheimProRegular.woff2) format("woff2"),
-         url(GTWalsheimProRegular.woff) format("woff"),
-         url(GTWalsheimProRegular.ttf) format("truetype");
+    src: local('GT Walsheim Pro Regular'), local('GTWalsheimProRegular'),
+        url(GTWalsheimProRegular.woff2) format('woff2'),
+        url(GTWalsheimProRegular.woff) format('woff'),
+        url(GTWalsheimProRegular.ttf) format('truetype');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'GT Walsheim Pro';
-    src: local("GT Walsheim Pro Bold"), local("GTWalsheimProBold"), 
-         url(GTWalsheimProBold.woff2) format("woff2"),
-         url(GTWalsheimProBold.woff) format("woff"),
-         url(GTWalsheimProBold.ttf) format("truetype");
+    src: local('GT Walsheim Pro Bold'), local('GTWalsheimProBold'),
+        url(GTWalsheimProBold.woff2) format('woff2'), url(GTWalsheimProBold.woff) format('woff'),
+        url(GTWalsheimProBold.ttf) format('truetype');
     font-weight: 700;
     font-style: normal;
 }
 
 $colorWhite: #ffffff;
 $colorBlack: black;
-$colorYellow: #FFB748;
-$colorGray: #1A1A1A;
+$colorYellow: #ffb748;
+$colorGray: #1a1a1a;
 
-/* Загальні стилі */ 
+/* Загальні стилі */
 
 * {
     overflow-x: hidden;
 }
 
 body {
-    background-color: black!important;
+    background-color: black !important;
     font-family: 'GT Walsheim Pro', sans-serif;
     font-weight: 400;
+    overflow-x: hidden;
 }
 
 .yellow-text {
@@ -44,746 +44,79 @@ body {
     color: $colorWhite;
 }
 
-// Шапка 
+// Шапка
 
-.header {
-    margin-top: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 700;
+header {
+    position: fixed; /* Фіксоване положення вгорі */
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 20px;
+    z-index: 100;
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1); /* Легка тінь для відділення хедера */
 
-    .header-name {
-        background-image: linear-gradient(86.44deg, #B66ED4 5.86%, #FFDD3D 94.14%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        margin-right: auto;
-    }
+    .header-container {
+        font-size: 18px;
+        display: flex;
+        justify-content: space-between; /* Розміщення контенту зліва і справа */
+        align-items: center;
 
-    .burger-menu {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        z-index: 2; // Щоб меню не перекривало бургер
-
-        span {
-            width: 25px;
-            height: 3px;
-            background-color: #fff;
-            margin: 4px 0;
-            transition: transform 0.4s ease, background-color 0.4s ease; // Додаємо плавні ефекти
-        }
-
-        &.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px); // Ефект анімації
-        }
-
-        &.active span:nth-child(2) {
-            opacity: 0; // Ховаємо середню смужку
-        }
-
-        &.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px); // Ефект анімації
-        }
-    }
-
-    .menu-items {
-        display: none; /* Приховане за замовчуванням */
-        flex-direction: column;
-        position: absolute;
-        top: 17%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0); /* Початковий стан */
-        padding: 20px 40px; /* Внутрішній відступ */
-        border-radius: 12px; /* Згладжені кути */
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4); /* Додаємо тінь */
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-
-        a {
-            text-decoration: none;
+        .header-link {
             font-size: 18px;
-            line-height: 26px;
-            letter-spacing: 1.2px;
-            margin: 15px 0;
-            padding: 10px 20px;
-            color: #fff; /* Білий текст */
-            background-color: rgba(255, 255, 255, 0.1); /* Фон для посилань */
-            border-radius: 8px;
-            transition: background-color 0.3s ease; /* Плавна зміна фону при наведенні */
-
-            &:hover {
-                background-color: rgba(255, 255, 255, 0.2); /* Ефект при наведенні */
-            }
+            font-weight: 700;
+            text-decoration: none;
+            background: linear-gradient(45deg, #A64AC9, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     }
 
-    @media (max-width: 800px) {
-        .burger-menu {
-            display: flex;
-        }
-
-        .menu-items.active {
-            display: flex;
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
+    /* Мобільні стилі для хедера */
+    @media (max-width: 768px) {
+        .header-container {
+            justify-content: center; /* Центруємо контент */
+            text-align: center;
+            flex-direction: column; /* Елементи в колонку для мобільних */
         }
     }
-
-    @media (min-width: 800px) {
-        .menu-items {
-            display: flex;
-            position: static;
-            opacity: 1;
-            transform: none;
-            background-color: transparent;
-            padding: 0;
-            flex-direction: row;
-
-            a {
-                margin: 0 10px;
-                background-color: transparent; /* Прибираємо фон на великих екранах */
-            }
-        }
-    }
-
-    
 }
 
-.header-preview {
-    background-color: $colorGray;
-    margin-top: 150px;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    border-radius: 50px;
+.company-name {
+    margin-top: 200px;
+    font-size: 7vw;
+    color: $colorWhite;
+    font-weight: 700;
     opacity: 0;
     transform: translateY(50px);
-    animation: fadeIn 1.5s ease-in-out forwards;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    text-align: center;
+    animation: fadeInUp 1s ease forwards;
 
-    @media screen and (max-width: 600px) {
-        margin-top: 50px;
-    }
-
-    .content-preview {
-        padding: 20px 50px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center; /* Центрування контенту */
-        text-transform: uppercase;
-        font-weight: 700;
-        gap: 20px; /* Відстань між текстом і зображенням */
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-        .header-preview-main-text {
-            font-size: 2.5vw; /* Оптимізовано для різних екранів */
-
-            .yellow-text {
-                color: #FFD700; /* Жовтий колір для акценту */
-            }
-
-            .white-text {
-                color: #fff; /* Білий текст */
-            }
-        }
-
-        img {
-            max-width: 150px;
-            height: auto;
-            margin-top: 20px;
-        }
-    }
+    /* Ефект при наведенні */
+    transition: color 0.3s ease, transform 0.3s ease;
 
     &:hover {
+        color: #FFD700;
         transform: scale(1.05);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
 
-    @media (max-width: 1200px) {
-        .content-preview {
-            padding: 15px 30px;
-            .header-preview-main-text {
-                font-size: 3vw;
-            }
-        }
-    }
-
-    @media (max-width: 800px) {
-        .content-preview {
-            flex-direction: column;
-            padding: 10px 20px;
-            gap: 10px; /* Зменшуємо відстань між елементами */
-            .header-preview-main-text {
-                font-size: 4vw;
-            }
-        }
-    }
-
-    @media (max-width: 600px) {
-        .content-preview {
-            padding: 5px 15px;
-            .header-preview-main-text {
-                font-size: 4.5vw;
-            }
-        }
-    }
-
-    @media (max-width: 400px) {
-        margin-top: 50px;
-        .content-preview {
-            padding: 5px 10px;
-            .header-preview-main-text {
-                font-size: 5vw;
-            }
-        }
-    }
-
-    @keyframes fadeIn {
-        0% {
-            opacity: 0;
-            transform: translateY(50px);
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-}
-
-
- // Основний текст блок
-
- .main-text {
-    margin-top: 150px;
-    opacity: 0; /* Початкова прозорість */
-    transform: translateY(50px); /* Початковий зсув вниз */
-    animation: fadeInUp 1.5s ease-in-out forwards; /* Анімація */
-    transition: transform 0.3s ease, color 0.3s ease; /* Додаємо плавний перехід для тексту при наведенні */
-
-    &:hover {
-        transform: translateY(-10px); /* Легкий підйом тексту при наведенні */
-        color: #F5B700; /* Зміна кольору на жовтий при наведенні */
-    }
-
-    .terms-text {
-        font-size: 100px;
-        font-weight: 900;
-        transition: font-size 0.3s ease, color 0.3s ease; /* Плавний перехід для розміру та кольору тексту */
-
-        &:hover {
-            font-size: 105px; /* Легке збільшення розміру тексту при наведенні */
-            color: #F5B700; /* Зміна кольору тексту на жовтий */
-        }
-    }
-
-    @media screen and (max-width: 1200px) {
-        text-align: center;
-
-        .terms-text {
-            font-size: 50px;
-
-            &:hover {
-                font-size: 52px; /* Менше збільшення на менших екранах */
-            }
-        }
-    }
-
-    /* Анімація при завантаженні */
-    @keyframes fadeInUp {
-        0% {
-            opacity: 0;
-            transform: translateY(50px); /* Початковий зсув вниз */
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(0); /* Кінцеве положення */
-        }
-    }
-}
-
-
-// Блок співробітника / опис текст | фото
-
-.employers {
-    margin-top: 150px;
-
-    @media screen and (max-width: 999px) {
-        text-align: center;
-    }
-
-    .employers-main-text {
-        font-size: 70px;
-        font-weight: 800;
-    }
-
-    .block-employers {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-
-        .text-employers {
-            flex: 2; // Більша частина простору для тексту на великих екранах
-            margin-right: 2em; // Відступ між текстом і зображеннями
-
-            .employers-desc-text {
-                font-size: 36px;
-                line-height: 48px;
-                font-weight: 600;
-                color: #C4C4C4;
-            }
-        }
-
-        .img-work-container {
-            flex: 1; // Одне зображення займає одну частину простору
-            margin: 1em;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: transform 0.3s ease, opacity 0.3s ease; // Плавний перехід для зображень
-
-            &:hover {
-                transform: scale(1.05); // Легке збільшення при наведенні
-                opacity: 0.9; // Легка зміна прозорості при наведенні
-            }
-
-            img {
-                display: block;
-                margin: 0 auto;
-                max-width: 100%;
-                height: auto;
-                object-fit: cover;
-            }
-
-            figcaption {
-                font-size: 20px;
-                color: #fff;
-                text-align: center;
-                margin-top: 0.5em;
-            }
-
-            .position {
-                font-size: 15px;
-                color: #C4C4C4;
-            }
-        }
-
-        @media screen and (max-width: 999px) {
-            .img-work-container {
-                flex: 1 1 100%; // Два зображення в ряд на середніх екранах
-            }
-
-            .hidden {
-                display: none;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .img-work-container {
-                flex: 1 1 100%; // Зображення займають всю ширину на маленьких екранах
-            }
-        }
-    }
-
-    .block-employers-img {
-        display: flex;
-        margin-top: 50px;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 1em;
-
-        .img-work-container {
-            flex: 1 1 calc(25% - 1em); // Зображення займають 25% ширини на великих екранах
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 1em;
-            transition: transform 0.3s ease, opacity 0.3s ease; // Плавний перехід для зображень
-
-            &:hover {
-                transform: scale(1.05); // Легке збільшення при наведенні
-                opacity: 0.9; // Легка зміна прозорості при наведенні
-            }
-
-            img {
-                display: block;
-                max-width: 100%;
-                height: auto;
-                object-fit: cover;
-            }
-
-            figcaption {
-                font-size: 20px;
-                color: #fff;
-                text-align: center;
-                margin-top: 0.5em;
-            }
-
-            .position {
-                font-size: 15px;
-                color: #C4C4C4;
-            }
-        }
-
-        .block-up {
-            display: none; // Приховуємо блок за замовчуванням на великих екранах
-        
-            @media screen and (max-width: 999px) {
-                display: flex; // Робимо блок видимим при ширині екрану менше 999px
-            }
-        }
-
-        // Адаптація для середніх екранів
-        @media screen and (max-width: 999px) {
-            .img-work-container {
-                flex: 1 1 calc(50% - 1em); // Зображення займають по 50% ширини
-            }
-        }
-
-        // Адаптація для малих екранів
-        @media screen and (max-width: 480px) {
-            .img-work-container {
-                flex: 1 1 100%; // Зображення займають всю ширину на малих екранах
-            }
-        }
-    }
-}
-
-
-/* Блок Послуги */
-
-.services {
-    text-align: left;
-    padding: 50px;
-    background-color: #000; // чорний фон
-    color: #fff; // білий текст
-
-    h2 {
-        font-size: 48px;
-        font-weight: bold;
-        margin-bottom: 30px;
-        transition: color 0.3s ease, transform 0.3s ease;
-
-        &:hover {
-            color: #F5B700; // Жовтий колір заголовка при наведенні
-            transform: translateY(-5px); // Легкий підйом заголовка
-        }
-
-        @media screen and (max-width: 999px) {
-            text-align: center;
-        }
-    }
-
-    .services-container {
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-        flex-wrap: wrap; // Додаємо, щоб картки автоматично переносилися на новий ряд
-
-        .service-card {
-            background-color: #1C1C1C;
-            border-radius: 20px;
-            padding: 20px;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            position: relative; // для позиціонування зображення
-            transition: transform 0.3s, box-shadow 0.3s ease, background-color 0.3s ease;
-
-            &:hover {
-                transform: translateY(-10px); // Підйом картки при наведенні
-                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); // Посилення тіні
-                background-color: #2D2D2D; // Легке затемнення картки
-            }
-
-            h3 {
-                font-size: 24px;
-                font-weight: bold;
-                margin-bottom: 10px;
-                transition: color 0.3s ease;
-
-                &:hover {
-                    color: #F5B700; // Зміна кольору заголовка картки при наведенні
-                }
-            }
-
-            p {
-                font-size: 16px;
-                color: #C4C4C4;
-                transition: color 0.3s ease;
-
-                &:hover {
-                    color: #F5B700; // Зміна кольору тексту при наведенні
-                }
-            }
-
-            span {
-                font-size: 20px;
-                font-weight: bold;
-                color: #F5B700; // жовтий текст для ціни
-                transition: color 0.3s ease;
-
-                &:hover {
-                    color: #fff; // Зміна кольору ціни при наведенні
-                }
-            }
-
-            .service-icon {
-                position: absolute;
-                bottom: 10px;
-                right: 10px;
-                width: 50px;
-                height: auto;
-                transition: transform 0.3s ease, opacity 0.3s ease;
-
-                &:hover {
-                    transform: scale(1.1); // Збільшення іконки при наведенні
-                    opacity: 0.9; // Легка зміна прозорості
-                }
-            }
-        }
-    }
-
-    // Адаптивність
-    @media screen and (min-width: 1200px) {
-        .services-container {
-            justify-content: space-between;
-            .service-card {
-                max-width: 30%; // Три блоки в ряд
-            }
-        }
-    }
-
-    @media screen and (max-width: 999px) {
-        .services-container {
-            justify-content: space-around; // Центруємо картки
-            .service-card {
-                max-width: 45%; // Два блоки в ряд
-            }
-        }
-    }
-
-    @media screen and (max-width: 800px) {
-        .services-container {
-            .service-card {
-                max-width: 100%; // Один блок в ряд
-            }
-        }
-    }
-}
-
-
-// Форма 
-
-.form {
-    margin-top: 250px;
-
-    .form-container {
-        background-color: #262626;
-        box-shadow: 0 4px 12px rgba(41, 41, 41, 0.1);
-        border-radius: 20px;
-        width: 100%; // Займає всю ширину на малих екранах
-        max-width: 450px; // Максимальна ширина для великих екранів
-        margin: 0 auto; // Центрування контейнера
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-        &:hover {
-            transform: scale(1.02); // Легке збільшення контейнера при наведенні
-            box-shadow: 0 6px 16px rgba(41, 41, 41, 0.2); // Посилення тіні
-        }
-
-        .form-block {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px; // Додаємо відступи всередині блоку
-
-            .main-text-form {
-                margin-top: 20px;
-                color: $colorWhite;
-                font-size: 50px;
-                font-weight: 800;
-                line-height: 90px;
-                text-align: center; // Центруємо текст
-                transition: color 0.3s ease, transform 0.3s ease;
-
-                &:hover {
-                    color: #ffb400; // Зміна кольору тексту при наведенні
-                    transform: translateY(-5px); // Підйом тексту при наведенні
-                }
-
-                @media (max-width: 768px) {
-                    font-size: 50px;
-                    line-height: 60px;
-                }
-
-                @media (max-width: 480px) {
-                    font-size: 40px;
-                    line-height: 50px;
-                }
-            }
-
-            .form-input {
-                background-color: rgb(87, 87, 87);
-                border: 1px solid $colorGray;
-                margin: 5px 0;
-                padding: 15px;
-                width: 100%; // Встановлюємо ширину 100% для адаптивності
-                max-width: 400px; // Максимальна ширина полів форми
-                border-radius: 10px;
-                transition: background-color 0.3s ease, border 0.3s ease, transform 0.3s ease;
-
-                &:hover {
-                    background-color: #606060; // Зміна кольору фону при наведенні
-                    border: 1px solid #ffb400; // Зміна кольору бордюра при наведенні
-                    transform: scale(1.03); // Легке збільшення при наведенні
-                }
-
-                @media (max-width: 480px) {
-                    max-width: 100%; // На малих екранах поля займають всю ширину
-                }
-            }
-
-            .form-btn {
-                margin-top: 10px;
-                padding: 15px 152px;
-                border-radius: 10px;
-                border: 1px solid $colorGray;
-                font-size: 15px;
-                font-weight: 800;
-                background-color: $colorGray;
-                color: #fff;
-                transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-
-                &:hover {
-                    background-color: #ffb400; // Зміна кольору фону при наведенні
-                    color: #262626; // Зміна кольору тексту при наведенні
-                    transform: translateY(-3px); // Легкий підйом кнопки при наведенні
-                    cursor: pointer; // Зміна курсору на pointer
-                }
-            }
-        }
-    }
-
-    // Додаткові стилі для різних розмірів екрану
-    @media (max-width: 1024px) {
-        margin-top: 100px;
-    }
-
+    /* Мобільні стилі для компанії */
     @media (max-width: 768px) {
-        margin-top: 80px;
-    }
-
-    @media (max-width: 480px) {
-        margin-top: 50px;
-    }
-}
-
-.footer {
-    margin-top: 150px;
-    background-color: #1c1c1c;
-    padding: 30px 0;
-    color: #fff;
-  
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 15px;
-    }
-  
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-  
-      .footer-column {
-        flex: 1;
-        margin: 10px 0;
-  
-        &:nth-child(1) {
-          flex: 2; // Більший простір для email
-        }
-
-        .footer-email {
-              background: linear-gradient(86.44deg, #B66ED4 5.86%, #FFDD3D 94.14%);
-            -webkit-background-clip: text;  // Підтримка для Webkit-браузерів
-            background-clip: text;  // Основна властивість
-            color: transparent;  // Текст стає прозорим, але видно градієнт
-            font-weight: bold;
-            text-decoration: none;
-        }
-  
-        p.footer-email a {
-          font-size: 24px;
-          font-weight: bold;
-          color: #fff;
-          text-decoration: none;
-  
-          &:hover {
-            color: #9e9e9e;
-          }
-        }
-  
-        ul {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-  
-          li {
-            font-size: 16px;
-            margin-bottom: 10px;
-  
-            strong {
-              font-size: 18px;
-            }
-  
-            a {
-              color: #c4c4c4;
-              text-decoration: none;
-  
-              &:hover {
-                color: #fff;
-              }
-            }
-          }
-        }
-      }
-    }
-  
-    @media (max-width: 768px) {
-      .footer-content {
-        flex-direction: column;
+        margin-top: 100px; /* Зменшуємо відступ для мобільних */
+        font-size: 10vw; /* Адаптивний розмір шрифту для мобільних */
         text-align: center;
-        align-items: center;
-  
-        .footer-column {
-          margin: 15px 0;
-        }
-  
-        .footer-email {
-          font-size: 20px;
-        }
-      }
-    }
-  
-    @media (max-width: 480px) {
-      .footer-content {
-        .footer-column {
-          flex: 1;
-        }
-      }
-  
-      .footer-email a {
-        font-size: 18px;
-      }
     }
 }
-  
+
+/* Анімація появи */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
