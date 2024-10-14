@@ -25,6 +25,11 @@ $colorYellow: #FFB748;
 $colorGray: #1A1A1A;
 
 /* Загальні стилі */ 
+
+* {
+    overflow-x: hidden;
+}
+
 body {
     background-color: black!important;
     font-family: 'GT Walsheim Pro', sans-serif;
@@ -279,7 +284,7 @@ body {
     }
 
     @media screen and (max-width: 1200px) {
-        text-align: left;
+        text-align: center;
 
         .terms-text {
             font-size: 50px;
