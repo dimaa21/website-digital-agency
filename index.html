@@ -1,198 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital agency</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="public/css/main.min.css">
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Digital agency</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="public/css/main.min.css" />
+    </head>
+    <body>
+        <!-- Шапка -->
 
-     <!-- Шапка -->
-
-     <header>
-        <div class="header header-nav container">
-            <a class="header-name" href="/">Humandone + Belagroprombank</a>
-            
-            <!-- Бургер-меню -->
-            <div class="burger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
+        <header>
+            <div class="header-container container">
+                <a class="header-link" href="/">Humandone</a>
             </div>
-            
-            <!-- Пункти меню, що будуть показуватись в бургер-меню -->
-            <div class="menu-items">
-                <a class="header-request">Leave a request</a>
-                <a class="header-number">+375 44 797-56-65</a>
-            </div>
-        </div>        
+        </header>
 
-        <div class="header-preview container">
-            <div class="content-preview">
-                <p class="header-preview-main-text">
-                    <span class="yellow-text">20%</span>
-                    <span class="white-text">discount on services to customers of the</span>
-                    <span class="yellow-text">Partner Bank</span>
-                </p>
-                <img src="public/img/logo.svg" alt="Partner Bank Logo">
-            </div>
-        </div>
-     </header>
+        <section class="company-name container">
+            Presentation <br>
+            of digital-agency
+        </section>
 
-    <!-- Блок з текстом-->
+    </body>
 
-    <section class="main-text container">
-        <p class="terms-text">
-            <span class="yellow-text">Special conditions for the </span>
-            <span class="white-text"> bank's clients </span>
-        </p>
-    </section>
-
-    <!-- Блок про працівників / інфо про них -->
-
-    <section class="employers container">
-        <p class="employers-main-text"> <span class="white-text"> Who <span class="yellow-text">we</span> are <br>and what we do </span></p>
-        <div class="block-employers">
-            <div class="text-employers">
-                <p class="employers-desc-text">We are a team of specialists in various spheres of IT providing services on creation and promotion <br> of projects of any complexity.</p>
-            </div>
-
-                <figure class="img-work-container hidden">
-                    <img class="img-work" src="public/img/worker-one.png" alt="Specialist working on a project">
-                    <figcaption class="name">Lary</figcaption>
-                    <figcaption class="position">Front-end Developer</figcaption>
-                </figure>
-                
-                <figure class="img-work-container hidden">
-                    <img class="img-work" src="public/img/worker-two.png" alt="Team collaboration on IT solutions">
-                    <figcaption class="name">Rayan</figcaption>
-                    <figcaption class="position">Back-end Developer</figcaption>
-                </figure>
-        </div>
-
-        <div class="block-employers-img">
-
-            <figure class="img-work-container block-up">
-                <img class="img-work" src="public/img/worker-one.png" alt="Specialist working on a project">
-                <figcaption class="name">Lary</figcaption>
-                <figcaption class="position">Front-end Developer</figcaption>
-            </figure>
-            
-            <figure class="img-work-container block-up">
-                <img class="img-work" src="public/img/worker-two.png" alt="Team collaboration on IT solutions">
-                <figcaption class="name">Rayan</figcaption>
-                <figcaption class="position">Back-end Developer</figcaption>
-            </figure>
-
-            <figure class="img-work-container">
-                <img class="img-work" src="public/img/worker-three.png" alt="Specialist working on a project">
-                <figcaption class="name">John</figcaption>
-                <figcaption class="position">Designer</figcaption>
-            </figure>
-            <figure class="img-work-container">
-                <img class="img-work" src="public/img/worker-four.png" alt="Team collaboration on IT solutions">
-                <figcaption class="name">Stan</figcaption>
-                <figcaption class="position">Project Manager</figcaption>
-            </figure>
-            <figure class="img-work-container">
-                <img class="img-work" src="public/img/worker-five.png" alt="Specialist working on a project">
-                <figcaption class="name">Paul</figcaption>
-                <figcaption class="position">Owner</figcaption>
-            </figure>
-            <figure class="img-work-container">
-                <img class="img-work" src="public/img/worker-six.png" alt="Team collaboration on IT solutions">
-                <figcaption class="name">Toni</figcaption>
-                <figcaption class="position">QA</figcaption>
-            </figure>
-        </div>
-        
-    </section>
-
-    <!-- Послуги -->
-    
-    <section class="services container">
-        <h2>Services</h2>
-        <div class="services-container">
-            <div class="service-card">
-                <h3>Дизайн</h3>
-                <p>We will design your website or app: from prototypes to illustrations.</p>
-                <span>From 300$</span>
-                <img src="public/img/service-two.svg" alt="Дизайн" class="service-icon">
-            </div>
-            <div class="service-card">
-                <h3>Development</h3>
-                <p>We will create a turnkey project from scratch or on the basis of ready-made solutions.</p>
-                <span>From 600$</span>
-                <img style="" src="public/img/service-one.svg" alt="Розробка" class="service-icon">
-            </div>
-            <div class="service-card">
-                <h3>Promotion</h3>
-                <p>Helping your finished products get to the top of the search engine rankings.</p>
-                <span>From 250$</span>
-                <img src="public/img/service-three.svg" alt="Просування" class="service-icon">
-            </div>
-        </div>
-    </section>
-
-    <!-- Блок з текстом-->
-
-    <section class="main-text container">
-        <p class="terms-text">
-            <span class="white-text"> DON'T KNOW WHERE TO START?
-                BOOK A <span class="yellow-text">FREE </span>
-                CONSULTATION! </span>
-        </p>
-    </section>
-    
-
-    <!-- Форма-->
-
-    <section class="form container">
-        <div class="form-container">
-            <form class="form-block" action="">
-                <p class="main-text-form">Contact us</p>
-                <input class="form-input" type="text" placeholder="Company name">
-                <input class="form-input" type="text" placeholder="Phone number">
-                <input class="form-input" type="text" placeholder="Email">
-                <button class="form-btn">Send request</button>
-            </form>
-        </div>
-    </section>
-
-    <!--Футер -->
-
-    <footer class="footer">
-        <div class="container">
-          <div class="footer-content">
-            <div class="footer-column">
-              <p class="footer-email"><a href="mailto:hello@humandone.com">hello@humandone.com</a></p>
-                <br>
-              <p class="footer-email">Humandone</p>
-              <p class="footer-email">Belagroprombank</p>
-            </div>
-            <div class="footer-column">
-              <ul class="footer-links">
-                <li><strong>About Us</strong></li>
-                <li><a href="#">Who we are</a></li>
-                <li><a href="#">What we do</a></li>
-                <li><a href="#">Our team</a></li>
-              </ul>
-            </div>
-            <div class="footer-column">
-              <ul class="footer-info">
-                <li><strong>Information</strong></li>
-                <li>VAT: 193413357</li>
-                <li>Address: 7 Aveny Park., Office 14</li>
-                <li>IBAN: BY23VABP30134638500100000000</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>        
-    
     <script src="app/js/main.js"></script>
 </html>
