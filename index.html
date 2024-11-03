@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Game Platform</title>
-        <link rel="stylesheet" href="public/css/main.min.css" />
-        <link rel="icon" href="public/img/game-controller.png" />
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Platform</title>
+    <link rel="stylesheet" href="public/css/main.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Header Section -->
+        <header class="header container">
+            <span class="logo">LOGO</span>
+            <nav class="nav-menu">
+                <ul class="menu">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">News</a></li>
+                    <li class="btn"><a href="#">Contact us</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <body>
-        <!--  Шапка -->
-        <div class="wrapper">
-            <header class="container">
-                <span class="logo">logo</span>
-                <nav>
-                    <ul>
-                        <li class="active">Home</li>
-                        <li><a href="">About us</a></li>
-                        <li><a href="">Portfolio</a></li>
-                        <li><a href="">News</a></li>
-                        <li class="btn"><a href="">Contact</a></li>
-                    </ul>
-                </nav>
-            </header>
-
-            <div class="hero container">
-                <div class="hero--info">
-                    <h2>3D game Dev</h2>
-                    <h1>Work that we produce for our clients</h1>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                        Ipsum has been the industry's standard.
-                    </p>
-                    <button class="btn">Get more details</button>
-                    <img src="public/img/hero-group.png" alt="">
-                </div> 
+        <!-- Hero Section -->
+        <div class="hero container">
+            <div class="hero-content">
+                <h3 class="subtitle">3D game Dev</h3>
+                <h1 class="title">Work that we produce for our clients</h1>
+                <p class="description">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.
+                </p>
+                <button class="cta-button">Get more details</button>
+            </div>
+            <div class="hero-image">
+                <img src="controller.png" alt="Game controller">
             </div>
         </div>
-    </body>
+    </div>
 
-    <script src="app/js/main.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
