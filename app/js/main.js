@@ -1,11 +1,9 @@
-// script.js
+// main-min.js
 document.addEventListener("DOMContentLoaded", function() {
-    const burgerIcon = document.querySelector(".burger");
+    const burger = document.querySelector(".burger");
     const menu = document.querySelector(".menu");
 
-    if (burgerIcon) {
-        burgerIcon.addEventListener("click", function() {
-            menu.classList.toggle("active");
-        });
-    }
+    burger.addEventListener("click", function() {
+        menu.classList.toggle("active");
+    });
 });
