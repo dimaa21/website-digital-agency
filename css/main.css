@@ -36,17 +36,34 @@ body {
 }
 
 .nav-menu ul li a {
-    color: #ffffff;
+    position: relative;
     text-decoration: none;
-    font-size: 18px;
-    font-weight: 500;
+    color: #ffffff;
     padding: 10px 15px;
-    transition: color 0.3s, background 0.3s;
+    font-size: 16px;
+    font-weight: 300;
+    transition: color 0.3s;
 }
 
-.nav-menu ul li a:hover {
-    border-radius: 5px;
+/* Ефект підкреслення при наведенні */
+.nav-menu ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #DC7000;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
 }
+
+.nav-menu ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
 
 /* Бургер-меню */
 .burger-menu {
