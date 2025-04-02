@@ -64,6 +64,15 @@ body {
     transform-origin: left;
 }
 
+.nav-menu ul li:last-child a {
+    background-color: #FA9021; /* Оранжевий фон */
+    color: #ffffff; /* Білий текст */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 300;
+    transition: background 0.3s, transform 0.2s;
+}
+
 
 /* Бургер-меню */
 .burger-menu {
