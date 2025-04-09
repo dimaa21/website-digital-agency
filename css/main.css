@@ -65,8 +65,8 @@ body {
 }
 
 .nav-menu ul li:last-child a {
-    background-color: #FA9021; /* Оранжевий фон */
-    color: #ffffff; /* Білий текст */
+    background-color: #FA9021;
+    color: #ffffff;
     padding: 10px 20px;
     border-radius: 5px;
     font-weight: 300;
@@ -76,7 +76,6 @@ body {
 .nav-menu ul li:last-child a::after {
     display: none!important;
 }
-
 
 /* Бургер-меню */
 .burger-menu {
@@ -95,7 +94,6 @@ body {
     transition: 0.3s;
 }
 
-
 /* Адаптивність */
 @media (max-width: 768px) {
     header .container {
@@ -112,8 +110,14 @@ body {
         right: 0;
         width: 100%;
         text-align: center;
-        display: none;
         flex-direction: column;
+
+        /* Анімація появи */
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        transition: max-height 0.4s ease, opacity 0.4s ease, visibility 0.4s;
     }
 
     .nav-menu ul {
@@ -123,8 +127,11 @@ body {
     }
 
     .nav-menu.active {
-        display: flex;
+        max-height: 500px;
+        opacity: 1;
+        visibility: visible;
     }
 }
+
 
 
