@@ -133,5 +133,103 @@ body {
     }
 }
 
-
-
+/* Основний контент */
+.game-dev-section {
+    color: #fff;
+    padding: 60px 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .content {
+    flex: 1 1 500px;
+  }
+  
+  .subtitle {
+    color: #FA9021;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+  
+  .description {
+    font-size: 16px;
+    font-weight: 300;
+    color: #cfcfcf;
+    margin-bottom: 30px;
+    max-width: 500px;
+  }
+  
+  .cta-button {
+    background: #FA9021;
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-weight: 500;
+    display: inline-block;
+    transition: background 0.3s;
+  }
+  
+  .cta-button:hover {
+    background: #dc7000;
+  }
+  
+  .image-section {
+    position: relative;
+    flex: 1 1 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .gamepad {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .logos {
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    opacity: 0.8;
+  }
+  
+  @media (max-width: 992px) {
+    /* .container {
+      flex-direction: column;
+      text-align: center;
+    } */
+  
+    .content, .image-section {
+      flex: 1 1 100%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .title {
+      font-size: 32px;
+    }
+  
+    .cta-button {
+      padding: 12px 24px;
+      font-size: 14px;
+    }
+  
+    .subtitle {
+      font-size: 14px;
+    }
+  
+    .description {
+      font-size: 14px;
+    }
+  }
+  
