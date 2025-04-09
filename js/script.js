@@ -1,4 +1,7 @@
-document.getElementById("burger-menu").addEventListener("click", function () {
-    this.classList.toggle("active");
-    document.getElementById("nav-menu").classList.toggle("active");
+const burger = document.getElementById('burger-menu');
+const nav = document.getElementById('nav-menu');
+
+burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    nav.classList.toggle('active');
 });

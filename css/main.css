@@ -73,6 +73,10 @@ body {
     transition: background 0.3s, transform 0.2s;
 }
 
+.nav-menu ul li:last-child a::after {
+    display: none!important;
+}
+
 
 /* Бургер-меню */
 .burger-menu {
@@ -94,6 +98,10 @@ body {
 
 /* Адаптивність */
 @media (max-width: 768px) {
+    header .container {
+        padding: 20px 30px!important;
+    }
+
     .burger-menu {
         display: flex;
     }
